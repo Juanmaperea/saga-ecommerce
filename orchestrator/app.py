@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 SERVICES = [
     {"name":"cart","url": os.getenv("CART_URL","http://cart_service:5101")},
+    {"name":"payment","url": os.getenv("PAYMENT_URL","http://payment_service:5102")},
     {"name":"inventory","url": os.getenv("INVENTORY_URL","http://inventory_service:5103")},
     {"name":"order","url": os.getenv("ORDER_URL","http://order_service:5104")},
     {"name":"notification","url": os.getenv("NOTIF_URL","http://notification_service:5107")},

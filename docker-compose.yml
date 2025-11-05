@@ -15,6 +15,14 @@ services:
       - PORT=5101
       - FAIL_RATE=0.0
 
+  payment_service:
+    build: ./services/2159832_payment_service
+    ports: ["5102:5102"]
+    environment:
+      - SERVICE_NAME=payment_service
+      - PORT=5102
+      - FAIL_RATE=0.0
+
   inventory_service:
     build: ./services/2182527_inventory_service
     ports: ["5103:5103"]
