@@ -6,6 +6,7 @@ app = Flask(__name__)
 SERVICES = [
     {"name":"cart","url": os.getenv("CART_URL","http://cart-service:5101")},
     {"name":"inventory","url": os.getenv("INVENTORY_URL","http://inventory-service:5103")},
+    {"name":"notification","url": os.getenv("NOTIF_URL","http://notification-service:5107")},
 ]
 
 TIMEOUT = 5
