@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loyalty-service
+  namespace: saga-ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loyalty-service
+  template:
+    metadata:
+      labels:
+        app: loyalty-service
+    spec:
+      containers:
+      - name: loyalty-service
+        image: saga-ecommerce-loyalty_service
+        env:
+        - name: SERVICE_NAME
+          value: "loyalty-service"
+        - name: PORT
+          value: "5108"
+        ports:
+        - containerPort: 5108
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loyalty-service
+  namespace: saga-ecommerce
+spec:
+  selector:
+    app: loyalty-service
+  ports:
+  - protocol: TCP
+    port: 5108
+    targetPort: 5108

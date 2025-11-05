@@ -9,6 +9,7 @@ SERVICES = [
     {"name":"inventory","url": os.getenv("INVENTORY_URL","http://inventory_service:5103")},
     {"name":"order","url": os.getenv("ORDER_URL","http://order_service:5104")},
     {"name":"notification","url": os.getenv("NOTIF_URL","http://notification_service:5107")},
+    {"name":"loyalty","url": os.getenv("LOYALTY_URL","http://loyalty_service:5108")}
 ]
 
 TIMEOUT = 5
