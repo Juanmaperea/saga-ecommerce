@@ -1,7 +1,16 @@
 version: '3.8'
+
 services:
   orchestrator:
     build: ./orchestrator
     ports: ["5000:5000"]
     environment:
       - PORT=5000
+
+  cart_service:
+    build: ./services/1926462_cart_service
+    ports: ["5101:5101"]
+    environment:
+      - SERVICE_NAME=cart_service
+      - PORT=5101
+      - FAIL_RATE=0.0
