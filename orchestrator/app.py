@@ -4,7 +4,8 @@ import requests, os, time
 app = Flask(__name__)
 
 SERVICES = [
-    {"name":"cart","url": os.getenv("CART_URL","http://cart-service:5101")}
+    {"name":"cart","url": os.getenv("CART_URL","http://cart-service:5101")},
+    {"name":"inventory","url": os.getenv("INVENTORY_URL","http://inventory-service:5103")},
 ]
 
 TIMEOUT = 5

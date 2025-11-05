@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-service
+  namespace: saga-ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory-service
+  template:
+    metadata:
+      labels:
+        app: inventory-service
+    spec:
+      containers:
+      - name: inventory-service
+        image: saga-ecommerce-inventory_service
+        env:
+        - name: SERVICE_NAME
+          value: "inventory-service"
+        - name: PORT
+          value: "5103"
+        ports:
+        - containerPort: 5103
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventory-service
+  namespace: saga-ecommerce
+spec:
+  selector:
+    app: inventory-service
+  ports:
+  - protocol: TCP
+    port: 5103
+    targetPort: 5103

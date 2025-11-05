@@ -14,3 +14,11 @@ services:
       - SERVICE_NAME=cart_service
       - PORT=5101
       - FAIL_RATE=0.0
+
+  inventory_service:
+   build: ./services/2182527_inventory_service
+   ports: ["5103:5103"]
+   environment:
+     - SERVICE_NAME=inventory_service
+     - PORT=5103
+     - FAIL_RATE=0.0
