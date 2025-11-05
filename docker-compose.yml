@@ -46,6 +46,14 @@ services:
       - SERVICE_NAME=shipping_service
       - PORT=5105
       - FAIL_RATE=0.0
+      
+  billing_service:
+    build: ./services/2259395_billing_service
+    ports: ["5106:5106"]
+    environment:
+      - SERVICE_NAME=billing_service
+      - PORT=5106
+      - FAIL_RATE=0.0 
 
   notification_service:
     build: ./services/2179652_notification_service
